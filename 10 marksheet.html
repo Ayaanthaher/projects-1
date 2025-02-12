@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Web Application</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+        header {
+            background: #333;
+            color: white;
+            padding: 1rem;
+        }
+        main {
+            max-width: 600px;
+            margin: 20px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        form input, form button {
+            display: block;
+            width: 100%;
+            margin: 10px 0;
+            padding: 10px;
+            font-size: 16px;
+        }
+        button {
+            background: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #218838;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            background: #ddd;
+            margin: 5px 0;
+            padding: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Student Portal</h1>
+    </header>
+    <main>
+        <section id="student-form">
+            <h2>Add Student</h2>
+            <form id="studentForm">
+                <input type="text" id="name" placeholder="Student Name" required>
+                <input type="email" id="email" placeholder="Email" required>
+                <input type="number" id="age" placeholder="Age" required>
+                <input type="number" id="marks" placeholder="Marks" required>
+                <button type="submit">Add Student</button>
+            </form>
+        </section>
+        <section id="student-list">
+            <h2>Student List</h2>
+            <ul id="students">
+                <li>Ravi Sharma - ravi@example.com - Age: 20 - Marks: 85</li>
+                <li>Pooja Verma - pooja@example.com - Age: 21 - Marks: 90</li>
+                <li>Amit Kumar - amit@example.com - Age: 22 - Marks: 78</li>
+                <li>Sneha Reddy - sneha@example.com - Age: 20 - Marks: 88</li>
+                <li>Rajesh Gupta - rajesh@example.com - Age: 23 - Marks: 75</li>
+                <li>Neha Singh - neha@example.com - Age: 22 - Marks: 92</li>
+                <li>Vikram Das - vikram@example.com - Age: 21 - Marks: 80</li>
+                <li>Priya Mehta - priya@example.com - Age: 20 - Marks: 89</li>
+                <li>Arjun Patil - arjun@example.com - Age: 24 - Marks: 76</li>
+                <li>Divya Nair - divya@example.com - Age: 21 - Marks: 95</li>
+            </ul>
+        </section>
+    </main>
+    <script>
+        document.getElementById('studentForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const age = document.getElementById('age').value;
+            const marks = document.getElementById('marks').value;
+            
+            if (name && email && age && marks) {
+                const studentList = document.getElementById('students');
+                const li = document.createElement('li');
+                li.textContent = `${name} - ${email} - Age: ${age} - Marks: ${marks}`;
+                studentList.appendChild(li);
+                
+                document.getElementById('studentForm').reset();
+            }
+        });
+    </script>
+</body>
+</html>
